@@ -17,7 +17,7 @@ This project automates the CI/CD process using AWS services, ensuring seamless c
 ✅ Real-time monitoring and alerting  
 
 ## 📷 Architecture Diagram
-![AWS CI/CD Architecture](docs/architecture-diagram.png)
+![AWS CI/CD Architecture](![image](https://github.com/user-attachments/assets/2934a8e1-e835-4b10-8338-1fb3708869f5))
 
 🔧 Setup: AWS CodePipeline with S3 & GitHub as Sources
 This setup will allow you to:
