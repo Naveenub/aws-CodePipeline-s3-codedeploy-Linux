@@ -133,6 +133,7 @@ SSH into the EC2 instance and check the deployed app:
 AWS Console
       
 CodePipeline → Check execution status.
+
 CodeDeploy → Monitor logs & errors.
 
 🎉 Done! You Now Have a Dual GitHub & S3 Deployment Pipeline 
