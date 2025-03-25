@@ -37,6 +37,7 @@ Step 2: Create an S3 Bucket for Storing Artifacts
 4. Upload an initial app.zip (sample application).
 
 Step 3: Create IAM Roles & Permissions
+
 🔹 IAM Role for EC2
 1. Go to IAM → Roles → Create Role.
 2. Attach policies:
@@ -44,6 +45,7 @@ Step 3: Create IAM Roles & Permissions
             AmazonEC2FullAccess
             AWSCodeDeployFullAccess
 3. Attach this role to the EC2 instance.
+
 🔹 IAM Role for CodePipeline
 1. Go to IAM → Create Role → Service: CodePipeline.
 2. Attach policies:
@@ -55,6 +57,7 @@ Step 3: Create IAM Roles & Permissions
 
 Step 4: Install CodeDeploy Agent on EC2
 Run the following on your EC2 instance:
+
       sudo yum update -y
       sudo yum install ruby wget -y
       cd /home/ec2-user
@@ -63,6 +66,7 @@ Run the following on your EC2 instance:
       sudo ./install auto
       sudo systemctl start codedeploy-agent
       sudo systemctl enable codedeploy-agent
+
 Verify installation:
       sudo systemctl status codedeploy-agent
 
@@ -80,17 +84,21 @@ Step 6: Create AWS CodePipeline with GitHub & S3
 1. Open AWS CodePipeline → Create Pipeline.
 2. Choose Pipeline Name: MyDeploymentPipeline.
 3. Service Role: Use the previously created IAM role.
+
 🔹 Add Source Stages
+
 📌 GitHub as Source
 1. Click Add Source.
 2. Choose GitHub.
 3. Connect your GitHub repository.
 4. Choose the branch (e.g., main).
+
 📌 S3 as Source
 1. Click Add Another Source.
 2. Choose Amazon S3.
 3. Select your S3 bucket (my-codepipeline-bucket).
 4. Set app.zip as the artifact.
+
 🔹 Deployment Stage (CodeDeploy)
 1. Choose AWS CodeDeploy.
 2. Select Application Name → MyApp.
@@ -99,23 +107,30 @@ Step 6: Create AWS CodePipeline with GitHub & S3
 Step 7: Push Code & Upload Artifacts
 **GitHub Deployment**
 1. Modify and push code:
+
       echo "Hello from GitHub" > index.html
       git add .
       git commit -m "GitHub Deployment"
       git push origin main
+
 2. This triggers CodePipeline, pulling the code from GitHub and deploying it.
 **S3 Deployment**
 1. Zip the latest version of your code:
+
       zip -r app.zip ./*
       Upload app.zip to S3 (my-codepipeline-bucket).
+
 2. This triggers CodePipeline, deploying the ZIP file.
 
 Step 8: Verify Deployment
 EC2 Verification
 SSH into the EC2 instance and check the deployed app:
+
       ls /var/www/html/
       cat /var/www/html/index.html
+
 AWS Console
+
       CodePipeline → Check execution status.
       CodeDeploy → Monitor logs & errors.
 
