@@ -1,24 +1,27 @@
-This project involved automating the entire software deployment process by building a CI/CD pipeline using AWS DevOps services. The goal was to enable continuous integration, automated testing, and continuous deployment, reducing manual intervention and improving system reliability.
+# AWS CI/CD Pipeline with CodePipeline, CodeBuild, and CodeDeploy
 
-Architecture & Implementation:
-Source Code Management: Hosted on GitHub with a webhook integration for automated builds.
+## 🚀 Project Overview
+This project automates the CI/CD process using AWS services, ensuring seamless code integration, testing, and deployment.
 
-Build & Test Automation: 
-AWS CodeBuild was used to compile, test, and package the application.
+## 🛠️ Technologies Used
+- **AWS CodePipeline** - Automates the build and deployment process.
+- **AWS CodeBuild** - Compiles and tests the application.
+- **AWS CodeDeploy** - Deploys the application to EC2 instances.
+- **AWS CloudWatch** - Monitors pipeline logs and performance.
+- **AWS IAM** - Manages access control and permissions.
 
-Deployment Process: 
-AWS CodeDeploy was configured to deploy artifacts to EC2 instances with zero-downtime using Blue/Green Deployment.
+## 📌 Features
+✅ Continuous integration and deployment  
+✅ Zero-downtime deployment with Blue/Green strategy  
+✅ Automated testing before deployment  
+✅ Real-time monitoring and alerting  
 
-Pipeline Automation: 
-AWS CodePipeline was the backbone, orchestrating the entire process from code commit to deployment.
+## 📷 Architecture Diagram
+![AWS CI/CD Architecture](docs/architecture-diagram.png)
 
-Monitoring & Alerts:
-AWS CloudWatch for real-time log analysis and performance monitoring.
-AWS SNS for notifying DevOps teams on build failures.
-
-Key Achievements:
-✔ Reduced deployment time by 70%, automating manual processes.
-✔ Achieved zero-downtime deployment with Blue/Green deployment strategy.
-✔ Improved system reliability with real-time monitoring and alerting.
+## 🔧 Setup Instructions
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/your-username/aws-ci-cd-pipeline.git
 
 Use this sample when creating a simple pipeline in AWS CodePipeline while following the Simple Pipeline Walkthrough tutorial. http://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-w.html
