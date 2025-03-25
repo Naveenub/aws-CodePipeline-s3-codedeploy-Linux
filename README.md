@@ -117,7 +117,7 @@ Step 7: Push Code & Upload Artifacts
 **S3 Deployment**
 1. Zip the latest version of your code:
 
-      zip -r app.zip ./*
+         zip -r app.zip ./*
 
    Upload app.zip to S3 (my-codepipeline-bucket).
 
